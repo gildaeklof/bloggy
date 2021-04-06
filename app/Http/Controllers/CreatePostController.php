@@ -18,7 +18,7 @@ class CreatePostController extends Controller
     {
         //valideringsregler för inputfältet
         //man måste skriva minst 10 karaktärer och det skall vara en sträng
-        //laravel skapar automatiskt nya felmeddelanden 
+        //laravel skapar automatiskt nya felmeddelanden
         $this->validate($request, [
             'description' => 'required|string|min:10'
         ]);
