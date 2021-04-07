@@ -31,6 +31,6 @@ class CreatePostController extends Controller
         $post->user_id = Auth::id();
         $post->save();
 
-        return back();
+        return back()->withSuccess('Your post was created!');
     }
 }

@@ -3,6 +3,7 @@
 Hello, {{ $user->name }}!
 
 @include('errors')
+@include('success')
 
 <form class="m-3" action="/posts" method="post">
     @csrf
@@ -19,8 +20,14 @@ Hello, {{ $user->name }}!
         <input class="form-control" name="image" id="image" type="file">
     </div>
     <div class="form-group w-50">
-        <label for="category">category</label>
-        <input class="form-control" name="category" id="category" type="text">
+        <label for="category">Select category: </label>
+        <select class="" name="category" id="category">
+            <option value="food">Food</option>
+            <option value="fashion">Fashion</option>
+            <option value="lifestyle">Lifestyle</option>
+            <option value="interior">Iterior</option>
+        </select>
+        <!--<input class="form-control" name="category" id="category" type="text">-->
     </div>
     <button class="btn btn-primary" type="submit">Create post</button>
 </form>
@@ -30,6 +37,14 @@ Hello, {{ $user->name }}!
     <li>
         {{$post->title}}
         {{$post->description}}
+
+        <form action="posts/{{$post->id}}/delete" method="post">
+            @csrf
+            @method('delete')
+            <button>Delete</button>
+        </form>
+
     </li>
+
     @endforeach
 </ul>
