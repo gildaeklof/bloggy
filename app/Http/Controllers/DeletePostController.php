@@ -15,6 +15,8 @@ class DeletePostController extends Controller
      */
     public function __invoke(Post $post)
     {
+
+        unlink(public_path() .  '/' . $post->image);
         $post->delete();
         return back()->withSuccess('Your post is deleted!');
     }

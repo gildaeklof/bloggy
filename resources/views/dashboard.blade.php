@@ -8,7 +8,7 @@ Hello, {{ $user->name }}!
 <form class="m-3" action="/posts" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group w-50">
-        <label for="title">title</label>
+        <label for="title">Title</label>
         <input class="form-control" name="title" id="title" type="text">
     </div>
     <div class="form-group w-50">
@@ -16,7 +16,7 @@ Hello, {{ $user->name }}!
         <input class="form-control" name="description" id="description" type="text">
     </div>
     <div class="form-group w-50">
-        <label for="image">image</label>
+        <label for="image">Image</label>
         <input class="form-control" name="image" id="image" type="file">
     </div>
     <div class="form-group w-50">
