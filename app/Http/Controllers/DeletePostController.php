@@ -16,6 +16,6 @@ class DeletePostController extends Controller
     public function __invoke(Post $post)
     {
         $post->delete();
-        return back();
+        return back()->withSuccess('Your post is deleted!');
     }
 }

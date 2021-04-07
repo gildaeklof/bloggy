@@ -35,15 +35,15 @@ Hello, {{ $user->name }}!
 <ul>
     @foreach ($user->posts as $post)
     <li>
-        {{$post->title}}
-        {{$post->description}}
-
+        <h2>{{$post->title}}</h2>
+        <p>{{$post->created_at}}</p>
+        <p>{{$post->description}}</p>
+        <img src="{{$post->image}}">
         <form action="posts/{{$post->id}}/delete" method="post">
             @csrf
             @method('delete')
             <button>Delete</button>
         </form>
-
     </li>
 
     @endforeach

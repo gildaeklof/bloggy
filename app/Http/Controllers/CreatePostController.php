@@ -20,13 +20,14 @@ class CreatePostController extends Controller
         //man måste skriva minst 10 karaktärer och det skall vara en sträng
         //laravel skapar automatiskt nya felmeddelanden
         $this->validate($request, [
-            'description' => 'required|string|min:10'
+            'description' => 'required|string|min:10',
+            'image' => 'nullable'
         ]);
 
         $post = new Post();
         $post->title = $request->input('title');
         $post->description = $request->input('description');
-        $post->image = $request->input('image') || null;
+        $post->image = $request->input('image');
         $post->category = $request->input('category');
         $post->user_id = Auth::id();
         $post->save();
