@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\CreatePostController;
+use App\Http\Controllers\EditPostController;
 use App\Http\Controllers\DeletePostController;
 use App\Http\Controllers\ViewPostsController;
 
@@ -37,6 +38,8 @@ Route::get('dashboard', DashboardController::class)->middleware('auth');
 Route::post('posts', CreatePostController::class)->middleware('auth');
 
 Route::delete('posts/{post}/delete', DeletePostController::class)->middleware('auth');
+
+Route::patch('posts/{post}/edit', EditPostController::class)->middleware('auth');
 
 Route::get('logout', LogoutController::class);
 
