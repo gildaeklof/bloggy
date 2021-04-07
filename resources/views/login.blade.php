@@ -1,13 +1,16 @@
+@include('header')
+
 @include('errors')
+
 <form action="/login" method="post">
     @csrf
-    <div>
+    <div class="form-group w-50">
         <label for="email">Email</label>
-        <input name="email" id="email" type="email" />
+        <input class="form-control" name="email" id="email" type="email" />
     </div>
-    <div>
+    <div class="form-group w-50">
         <label for="password">Password</label>
-        <input name="password" id="password" type="password" />
+        <input class="form-control" name="password" id="password" type="password" />
     </div>
-    <button type="submit">Login</button>
+    <button class="btn btn-primary" type="submit">Login</button>
 </form>

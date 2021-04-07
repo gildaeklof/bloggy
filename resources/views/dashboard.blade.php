@@ -1,21 +1,28 @@
-Hello, {{ $user->name }}!
+@include('header')
 
-<a href="/logout">Logout</a>
-<a href="/">Home</a>
+Hello, {{ $user->name }}!
 
 @include('errors')
 
-<form action="/posts" method="post">
+<form class="m-3" action="/posts" method="post">
     @csrf
-    <label for="title">title</label>
-    <input name="title" id="title" type="text">
-    <label for="description">Description</label>
-    <input name="description" id="description" type="text">
-    <label for="image">image</label>
-    <input name="image" id="image" type="file">
-    <label for="category">category</label>
-    <input name="category" id="category" type="text">
-    <button type="submit">Create post</button>
+    <div class="form-group w-50">
+        <label for="title">title</label>
+        <input class="form-control" name="title" id="title" type="text">
+    </div>
+    <div class="form-group w-50">
+        <label for="description">Description</label>
+        <input class="form-control" name="description" id="description" type="text">
+    </div>
+    <div class="form-group w-50">
+        <label for="image">image</label>
+        <input class="form-control" name="image" id="image" type="file">
+    </div>
+    <div class="form-group w-50">
+        <label for="category">category</label>
+        <input class="form-control" name="category" id="category" type="text">
+    </div>
+    <button class="btn btn-primary" type="submit">Create post</button>
 </form>
 
 <ul>

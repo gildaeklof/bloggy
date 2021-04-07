@@ -26,7 +26,7 @@ class CreatePostController extends Controller
         $post = new Post();
         $post->title = $request->input('title');
         $post->description = $request->input('description');
-        $post->image = $request->input('image');
+        $post->image = $request->input('image') || null;
         $post->category = $request->input('category');
         $post->user_id = Auth::id();
         $post->save();

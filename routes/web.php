@@ -18,13 +18,16 @@ use App\Http\Controllers\ViewPostsController;
 |
 */
 
-Route::view('/', 'index');
+//Route::view('/', 'index');
+Route::get('/', ViewPostsController::class);
+
+/*Route::get('/', ViewPostsController::class, function () {
+    return view('/', 'index');
+});*/
 
 Route::get('login', function () {
     return view('login');
-})->middleware('guest');
-
-Route::get('/viewpost', ViewPostsController::class);
+})->name('login')->middleware('guest');
 
 Route::post('login', LoginController::class);
 

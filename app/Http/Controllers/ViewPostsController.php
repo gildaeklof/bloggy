@@ -16,9 +16,13 @@ class ViewPostsController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $posts = DB::select('select * from posts');
-        return view('/viewpost', [
+        $posts = Post::all();
+        return view('/index', [
             'posts' => $posts
         ]);
+        /*$posts = DB::select('select * from posts');
+        return view('index', [
+            'posts' => $posts
+        ]);*/
     }
 }
