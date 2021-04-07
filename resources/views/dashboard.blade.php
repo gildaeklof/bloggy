@@ -5,7 +5,7 @@ Hello, {{ $user->name }}!
 @include('errors')
 @include('success')
 
-<form class="m-3" action="/posts" method="post">
+<form class="m-3" action="/posts" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group w-50">
         <label for="title">title</label>
@@ -33,16 +33,17 @@ Hello, {{ $user->name }}!
 </form>
 
 <ul>
-    @foreach ($user->posts as $post)
+    @foreach ($user->posts->sortDesc() as $post)
     <li>
         <h2>{{$post->title}}</h2>
+        <p>{{$post->category}}</p>
         <p>{{$post->created_at}}</p>
         <p>{{$post->description}}</p>
         <img src="{{$post->image}}">
         <form action="posts/{{$post->id}}/delete" method="post">
             @csrf
             @method('delete')
-            <button>Delete</button>
+            <button class="btn btn-danger">Delete</button>
         </form>
     </li>
 

@@ -1,5 +1,5 @@
 @if ($errors->any())
-<p>
+<p class="alert alert-danger">
     <u>{{ $errors->first() }}</u>
 </p>
 @endif
