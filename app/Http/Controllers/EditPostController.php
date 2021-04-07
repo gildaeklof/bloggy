@@ -26,7 +26,7 @@ class EditPostController extends Controller
 
 
         if ($post->image !== null) {
-            unlink(public_path() .  '/' . $post->image);
+            unlink(public_path() . '/' . $post->image);
         }
 
         if ($request->hasFile('image')) {
