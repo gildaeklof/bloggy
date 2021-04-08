@@ -7,7 +7,6 @@ use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 
-
 class CommentsController extends Controller
 {
     public function createComment(Request $request)
