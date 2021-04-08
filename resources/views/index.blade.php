@@ -1,23 +1,26 @@
 @include('header')
 
 <section class="container">
-<p>My bloggy</p>
+    <p>My bloggy</p>
 
-<ul class="">
-    <li class="nav-item">
-        <a class="nav-link" href="/?category=lifestyle">Lifestyle</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="/">Fashion</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="/logout">Interior</a>
-    </li>
+    <ul class="">
+        <li class="nav-item">
+            <a class="nav-link" href="/">All posts</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/lifestyle">Lifestyle</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/fashion">Fashion</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/interior">Interior</a>
+        </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="/login">Food</a>
-    </li>
-</ul>
+        <li class="nav-item">
+            <a class="nav-link" href="/food">Food</a>
+        </li>
+    </ul>
 
-@include('posts')
+    @include('posts')
 </section>

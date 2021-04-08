@@ -14,7 +14,7 @@ class ViewPostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function getAllPosts(Request $request)
     {
         $posts = Post::all();
         return view('/index', [
@@ -24,5 +24,33 @@ class ViewPostsController extends Controller
         return view('index', [
             'posts' => $posts
         ]);*/
+    }
+    public function getFoodPosts(Request $request)
+    {
+        $posts = Post::where('category', 'food')->get();
+        return view('/index', [
+            'posts' => $posts
+        ]);
+    }
+    public function getInteriorPosts(Request $request)
+    {
+        $posts = Post::where('category', 'interior')->get();
+        return view('/index', [
+            'posts' => $posts
+        ]);
+    }
+    public function getFashionPosts(Request $request)
+    {
+        $posts = Post::where('category', 'fashion')->get();
+        return view('/index', [
+            'posts' => $posts
+        ]);
+    }
+    public function getLifestylePosts(Request $request)
+    {
+        $posts = Post::where('category', 'lifestyle')->get();
+        return view('/index', [
+            'posts' => $posts
+        ]);
     }
 }
