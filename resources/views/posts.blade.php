@@ -1,4 +1,4 @@
-@foreach ($posts->sortDesc() as $post)
+@forelse ($posts->sortDesc() as $post)
 <div class="card m-2">
     <img class="card-img-top" src="{{$post->image}}">
     <div class="card-body">
@@ -12,4 +12,6 @@
         @include('comments')
     </div>
 </div>
-@endforeach
+@empty
+<p>No posts in this category.</p>
+@endforelse
