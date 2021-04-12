@@ -8,7 +8,6 @@ use Tests\TestCase;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
-
 class LoginTest extends TestCase
 {
     use RefreshDatabase;
