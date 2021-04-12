@@ -9,7 +9,6 @@ use App\Http\Controllers\ViewPostsController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\CreatePostController;
 
-
 Route::get('/', [ViewPostsController::class, 'getAllPosts']);
 
 Route::get('/food', [ViewPostsController::class, 'getFoodPosts']);

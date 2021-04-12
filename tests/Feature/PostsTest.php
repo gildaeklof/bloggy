@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Post;
 
-
 class PostsTest extends TestCase
 {
     use RefreshDatabase;
@@ -37,7 +36,7 @@ class PostsTest extends TestCase
     /* public function test_edit_post()
     {
         $user = User::factory()->create();
-         $post = Post::factory()->create(); 
+         $post = Post::factory()->create();
         $response = $this->actingAs($user)->patch('posts', [PostsController::class, 'editPost'], [
             'description' => 'hjehejehejeheeheheje',
         ]);
