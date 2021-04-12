@@ -6,7 +6,7 @@
     @csrf
     <div class="form-group w-50">
         <label for="email">Email</label>
-        <input class="form-control" name="email" id="email" type="email" />
+        <input class="form-control" name="email" id="email" type="email" value="{{Session::pull('email', '')}}" />
     </div>
     <div class="form-group w-50">
         <label for="password">Password</label>

@@ -1,5 +1,5 @@
 @include('header')
-
+@include('success')
 <section class="container">
     <p>My bloggy</p>
 

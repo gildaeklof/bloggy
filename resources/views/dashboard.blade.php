@@ -4,7 +4,7 @@
     Hello, {{ $user->name }}!
     @include('errors')
     @include('success')
-    <form class="m-3" action="/posts" method="post" enctype="multipart/form-data">
+    <form class="m-3" action="posts" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group w-50">
             <label for="title">Title</label>
@@ -69,12 +69,11 @@
                 @method('delete')
                 <button class="btn btn-danger">Delete</button>
             </form>
-           {{--  <form action="posts/{{$post->id}}/edit" method="post">
-                @csrf
-                @method('edit')
-                <button class="btn ">Edit</button>
-            </form --}}
-        </li>
-        @endforeach
+            {{-- <form action="posts/{{$post->id}}/edit" method="post">
+            @csrf
+            @method('edit')
+            <button class="btn ">Edit</button>
+            </form --}} </li>
+            @endforeach
     </ul>
 </body>

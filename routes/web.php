@@ -7,6 +7,8 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ViewPostsController;
 use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\CreatePostController;
+
 
 Route::get('/', [ViewPostsController::class, 'getAllPosts']);
 
@@ -26,7 +28,7 @@ Route::post('login', LoginController::class);
 
 Route::get('dashboard', DashboardController::class)->middleware('auth');
 
-Route::post('posts', [PostsController::class, 'createPost'])->middleware('auth');
+Route::post('posts', CreatePostController::class)->middleware('auth');
 
 Route::delete('posts/{post}/delete', [PostsController::class, 'deletePost'])->middleware('auth');
 

@@ -6,43 +6,40 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
-class PostsController extends Controller
+class CreatePostController extends Controller
 {
-    public function editPost(Post $post, Request $request)
+    /**
+     * Handle the incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function __invoke(Request $request)
     {
+        //valideringsregler för inputfältet
+        //man måste skriva minst 10 karaktärer och det skall vara en sträng
+        //laravel skapar automatiskt nya felmeddelanden
         $this->validate($request, [
             'description' => 'string',
             'image' => 'nullable|mimes:jpeg,jpg,png,gif,svg|max:1000'
         ]);
 
+        $post = new Post();
         $post->title = $request->input('title');
         $post->description = $request->input('description');
 
-
-        if ($post->image !== null) {
-            unlink(public_path() . '/' . $post->image);
-        }
+        //dd($request->all());
 
         if ($request->hasFile('image')) {
             $fileName = $request->file('image')->store('images');
             $post->image = $fileName;
         }
 
+
         $post->category = $request->input('category');
         $post->user_id = Auth::id();
-
         $post->save();
 
-        return back()->withSuccess('Your post was updated!');
-    }
-
-    public function deletePost(Post $post)
-    {
-        if ($post->image !== null) {
-            unlink(public_path() . '/' . $post->image);
-        }
-        $post->delete();
-        $post->comments()->delete();
-        return back()->withSuccess('Your post is deleted!');
+        return back()->withSuccess('Your post was created!');
     }
 }
