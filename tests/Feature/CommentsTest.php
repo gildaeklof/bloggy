@@ -19,7 +19,6 @@ class CommentsTest extends TestCase
      */
     public function test_create_comment()
     {
-
         $this->withoutExceptionHandling();
 
         /* $user = new User();
