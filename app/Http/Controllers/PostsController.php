@@ -8,6 +8,37 @@ use App\Models\Post;
 
 class PostsController extends Controller
 {
+
+    public function createPost(Post $post, Request $request)
+    {
+        $this->validate($request, [
+            'description' => 'string',
+            'image' => 'nullable|mimes:jpeg,jpg,png,gif,svg|max:1000'
+        ]);
+
+        $post = new Post();
+        $post->title = $request->input('title');
+        $post->description = $request->input('description');
+
+
+
+        if ($request->hasFile('image')) {
+            $fileName = $request->file('image')->store('images');
+            $post->image = $fileName;
+        }
+
+
+        $post->category = $request->input('category');
+
+        $post->user_id = Auth::id();
+
+        //dd(Post::all());
+        $post->save();
+
+
+        return back()->withSuccess('Your post was created!');
+    }
+
     public function editPost(Post $post, Request $request)
     {
         $this->validate($request, [
@@ -32,6 +63,7 @@ class PostsController extends Controller
         $post->user_id = Auth::id();
 
         $post->save();
+
 
         return back()->withSuccess('Your post was updated!');
     }

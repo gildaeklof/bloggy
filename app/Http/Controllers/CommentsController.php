@@ -11,9 +11,6 @@ class CommentsController extends Controller
 {
     public function createComment(Request $request)
     {
-        //valideringsregler för inputfältet
-        //man måste skriva minst 10 karaktärer och det skall vara en sträng
-        //laravel skapar automatiskt nya felmeddelanden
         $this->validate($request, [
             'name' => 'required|string|max:30',
             'comment' => 'required|string|max:300',

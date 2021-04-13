@@ -85,4 +85,13 @@ class LoginTest extends TestCase
 
         $response->assertSeeText('Whoops! Please try again!');
     }
+
+    public function test_user_cannot_view_a_login_form_when_authenticated()
+    {
+        $user = User::factory()->make();
+
+        $response = $this->actingAs($user)->get('/login');
+
+        $response->assertRedirect('/');
+    }
 }

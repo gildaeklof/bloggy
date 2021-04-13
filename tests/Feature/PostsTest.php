@@ -17,29 +17,42 @@ class PostsTest extends TestCase
      *
      * @return void
      */
-    public function test_create_post()
+    public function test_user_create_post()
     {
-        $user = new User();
-        $user->name = 'Mr Robot';
-        $user->email = 'example@yrgo.se';
-        $user->password = Hash::make('123');
-        $user->save();
 
-        $response = $this
-            ->actingAs($user)
-            ->post('posts', [
-                'description' => 'Finish writing this test'
-            ]);
+        $user = User::factory()->create();
 
-        $this->assertDatabaseHas('posts', ['description' => 'Finish writing this test']);
+        $this->actingAs($user)->post('posts', [
+            'title' => 'hejhej',
+            'description' => 'Finish writing this test',
+            'category' => 'food',
+        ]);
+
+        $this->assertDatabaseHas('posts', [
+            'title' => 'hejhej',
+            'description' => 'Finish writing this test',
+            'category' => 'food',
+        ]);
     }
-    /* public function test_edit_post()
+
+    public function test_edit_post()
     {
         $user = User::factory()->create();
-         $post = Post::factory()->create();
-        $response = $this->actingAs($user)->patch('posts', [PostsController::class, 'editPost'], [
+
+        /* $response = $this->actingAs($user)->post('posts', [
+            'title' => 'hejhej',
+            'description' => 'Finish writing this test',
+            'category' => 'food',
+        ]); */
+
+        $response = $this->actingAs($user)->patch('posts', [
             'description' => 'hjehejehejeheeheheje',
         ]);
+
         $response->assertSeeText('Your post was updated!');
-    } */
+
+        $response = $this->assertDatabaseHas('posts', [
+            'description' => 'hjehejehejeheeheheje',
+        ]);
+    }
 }

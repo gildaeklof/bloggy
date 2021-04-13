@@ -27,7 +27,7 @@ Route::post('login', LoginController::class);
 
 Route::get('dashboard', DashboardController::class)->middleware('auth');
 
-Route::post('posts', CreatePostController::class)->middleware('auth');
+Route::post('posts', [PostsController::class, 'createPost'])->middleware('auth');
 
 Route::delete('posts/{post}/delete', [PostsController::class, 'deletePost'])->middleware('auth');
 

@@ -16,9 +16,7 @@ class CreatePostController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //valideringsregler för inputfältet
-        //man måste skriva minst 10 karaktärer och det skall vara en sträng
-        //laravel skapar automatiskt nya felmeddelanden
+
         $this->validate($request, [
             'description' => 'string',
             'image' => 'nullable|mimes:jpeg,jpg,png,gif,svg|max:1000'
@@ -28,7 +26,7 @@ class CreatePostController extends Controller
         $post->title = $request->input('title');
         $post->description = $request->input('description');
 
-        //dd($request->all());
+
 
         if ($request->hasFile('image')) {
             $fileName = $request->file('image')->store('images');
@@ -37,8 +35,12 @@ class CreatePostController extends Controller
 
 
         $post->category = $request->input('category');
+
         $post->user_id = Auth::id();
+
+
         $post->save();
+
 
         return back()->withSuccess('Your post was created!');
     }
