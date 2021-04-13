@@ -60,9 +60,12 @@ class PostsController extends Controller
         }
 
         $post->category = $request->input('category');
-        $post->user_id = Auth::id();
+        //$post->user_id = Auth::id();
 
-        $post->save();
+        $post->update();
+        //dd($post);
+
+
 
 
         return back()->withSuccess('Your post was updated!');

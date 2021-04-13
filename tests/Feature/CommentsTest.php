@@ -3,7 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\User;
-use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Hash;
@@ -19,35 +19,33 @@ class CommentsTest extends TestCase
      */
     public function test_create_comment()
     {
-
-        $this->withoutExceptionHandling();
-
-        /* $user = new User();
-        $user->name = 'Mr Robot';
-        $user->email = 'example@yrgo.se';
-        $user->password = Hash::make('123');
-        $user->save();
-
-        $post = new Post();
-        $post->title = 'Hej';
-        $post->description = 'testststtststststt';
-        $post->image = 'hej.jpg';
-        $post->category = 'food';
-        $post->user_id = $user->id;
-        $post->save(); */
-
-        $post = Post::factory()->create();
-
-        $response = $this->post('comments', [
-            'post_id' => $post->id,
+        $response = $this->followingRedirects()->post('comments', [
+            'post_id' => 1,
             'name' => 'hejhej',
             'comment' => 'Finish writing this test',
         ]);
 
         $this->assertDatabaseHas('comments', [
-            'post_id' => $post->id,
-            'title' => 'hejhej',
+            'post_id' => 1,
+            'name' => 'hejhej',
             'comment' => 'Finish writing this test',
+        ]);
+
+        $response->assertSeeText('Your comment was created!');
+    }
+
+    public function test_delete_comment()
+    {
+        $user = User::factory()->create();
+
+        $comment = Comment::factory()->create();
+
+        $response = $this->followingRedirects()->actingAs($user)->delete('comment/' . $comment->id . '/delete');
+
+        $response->assertSeeText('Your comment is deleted!');
+
+        $this->assertDatabaseMissing('comments', [
+            'id' => $comment->id,
         ]);
     }
 }

@@ -20,10 +20,12 @@ class CommentsController extends Controller
         $comment->post_id = $request->input('post_id');
         $comment->name = $request->input('name');
         $comment->comment = $request->input('comment');
+        //dd($comment);
         $comment->save();
 
         return back()->withSuccess('Your comment was created!');
     }
+
     public function deleteComment(Comment $comment)
     {
         $comment->delete();
