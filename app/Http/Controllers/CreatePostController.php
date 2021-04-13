@@ -16,7 +16,6 @@ class CreatePostController extends Controller
      */
     public function __invoke(Request $request)
     {
-
         $this->validate($request, [
             'description' => 'string',
             'image' => 'nullable|mimes:jpeg,jpg,png,gif,svg|max:1000'
