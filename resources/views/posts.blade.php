@@ -4,12 +4,14 @@
     <div class="card-body">
         <h2>{{$post->title}}</h2>
         <p>{{$post->category}}</p>
-        <p>{{$post->created_at}}</p>
         <p>{{$post->description}}</p>
-        <button type="button" class="btn btn-primary">
+        <p>{{$post->created_at}}</p>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse{{$post->id}}" aria-expanded="false" aria-controls="collapse{{$post->id}}">
             Comments <span class="badge bg-dark">{{$post->comments->count()}}</span>
         </button>
-        @include('comments')
+        <section class="collapse" id="collapse{{$post->id}}">
+            @include('comments')
+        </section>
     </div>
 </div>
 @empty

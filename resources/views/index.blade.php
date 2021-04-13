@@ -24,3 +24,5 @@
 
     @include('posts')
 </section>
+
+@include('footer')

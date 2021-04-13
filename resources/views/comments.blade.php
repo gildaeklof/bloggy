@@ -1,7 +1,7 @@
 @foreach ($post->comments as $comment)
 <p>{{$comment->name}}</p>
 <p>{{$comment->comment}}</p>
-<p>{{$comment->created_at}}</p>
+<p class="small">{{$comment->created_at}}</p>
 @if (Auth::check())
 <form action="comment/{{$comment->id}}/delete" method="post">
     @csrf

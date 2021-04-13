@@ -14,3 +14,5 @@
     </div>
     <button class="btn btn-primary" type="submit">Login</button>
 </form>
+
+@include('footer')
