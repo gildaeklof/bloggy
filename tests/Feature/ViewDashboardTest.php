@@ -8,7 +8,6 @@ use Tests\TestCase;
 
 class ViewDashboardTest extends TestCase
 {
-
     use RefreshDatabase;
     /**
      * A basic feature test example.
