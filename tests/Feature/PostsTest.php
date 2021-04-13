@@ -19,7 +19,6 @@ class PostsTest extends TestCase
      */
     public function test_user_create_post()
     {
-
         $user = User::factory()->create();
 
         $this->actingAs($user)->post('posts', [
