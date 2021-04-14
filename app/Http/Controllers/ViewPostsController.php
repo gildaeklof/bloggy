@@ -20,10 +20,6 @@ class ViewPostsController extends Controller
         return view('/index', [
             'posts' => $posts
         ]);
-        /*$posts = DB::select('select * from posts');
-        return view('index', [
-            'posts' => $posts
-        ]);*/
     }
     public function getFoodPosts(Request $request)
     {

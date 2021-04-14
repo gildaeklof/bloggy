@@ -19,21 +19,14 @@ class PostsController extends Controller
         $post->title = $request->input('title');
         $post->description = $request->input('description');
 
-
-
         if ($request->hasFile('image')) {
             $fileName = $request->file('image')->store('images');
             $post->image = $fileName;
         }
 
-
         $post->category = $request->input('category');
-
         $post->user_id = Auth::id();
-
-        //dd(Post::all());
         $post->save();
-
 
         return back()->withSuccess('Your post was created!');
     }
@@ -49,23 +42,18 @@ class PostsController extends Controller
         $post->description = $request->input('description');
 
 
-        if ($post->image !== null) {
-            unlink(public_path() . '/' . $post->image);
-        }
-
         if ($request->hasFile('image')) {
+
+            if ($post->image !== null) {
+                unlink(public_path() . '/' . $post->image);
+            }
+
             $fileName = $request->file('image')->store('images');
             $post->image = $fileName;
         }
 
         $post->category = $request->input('category');
-        //$post->user_id = Auth::id();
-
         $post->update();
-        //dd($post);
-
-
-
 
         return back()->withSuccess('Your post was updated!');
     }
@@ -75,8 +63,10 @@ class PostsController extends Controller
         if ($post->image !== null) {
             unlink(public_path() . '/' . $post->image);
         }
+
         $post->delete();
         $post->comments()->delete();
+
         return back()->withSuccess('Your post is deleted!');
     }
 }

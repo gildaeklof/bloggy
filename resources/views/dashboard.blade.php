@@ -60,7 +60,7 @@
                             <label for="description">Description</label>
                             <textarea rows="5" class="form-control" name="description" id="description" type="text">{{$post->description}}</textarea>
                         </div>
-                        <img src="{{$post->image}}">
+                        <img  class="card-img-top" src="{{$post->image}}">
                         <div class="form-group w-50">
                             <label for="image">Image</label>
                             <input class="" name="image" id="image" type="file" value="{{$post->image}}">
@@ -68,10 +68,11 @@
                         <div class="form-group w-50">
                             <label for="category">Select category: </label>
                             <select class="" name="category" id="category">
-                                <option value="food">Food</option>
-                                <option value="fashion">Fashion</option>
-                                <option value="lifestyle">Lifestyle</option>
-                                <option value="interior">Interior</option>
+                                <option>{{$post->category}}</option>
+                                <option value="Food">Food</option>
+                                <option value="Fashion">Fashion</option>
+                                <option value="Lifestyle">Lifestyle</option>
+                                <option value="Interior">Interior</option>
                             </select>
                         </div>
                         <button class="btn btn-dark mb-2" type="submit">Save changes</button>

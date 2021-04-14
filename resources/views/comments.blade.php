@@ -39,21 +39,6 @@
     </div>
 </div>
 
-{{-- @foreach ($post->comments as $comment)
-<div class="comment">
-    <p>{{$comment->name}}</p>
-    <p>{{$comment->comment}}</p>
-    <p class="small">{{$comment->created_at}}</p>
-    @if (Auth::check())
-    <form action="comment/{{$comment->id}}/delete" method="post">
-        @csrf
-        @method('delete')
-        <button class="btn btn-danger">Delete</button>
-    </form>
-    @endif
-<div>
-@endforeach
- --}}
 
 
 
