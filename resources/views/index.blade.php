@@ -1,9 +1,9 @@
 @include('header')
 @include('success')
-<section class="container">
+<main class="container mt-5">
     <h1 class="text-center pb-5">My bloggy</h1>
 
-    <ul class="nav nav-tabs justify-content-center">
+    <ul class="nav nav-tabs justify-content-center mb-5">
         <li class="nav-item">
             <a class="nav-link text-uppercase {{ (request()->is('/')) ? 'active' : '' }}" aria-current="page" href="/">All posts</a>
         </li>
@@ -22,6 +22,6 @@
     </ul>
 
     @include('posts')
-</section>
+</main>
 
 @include('footer')

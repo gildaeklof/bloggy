@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\Post;
 
 class ViewAllPagesTest extends TestCase
 {
@@ -22,7 +23,15 @@ class ViewAllPagesTest extends TestCase
 
     public function test_view_posts_with_category_food_page()
     {
-        $response = $this->get('/food');
+        $post = new Post();
+        $post->title = 'Mr Robot';
+        $post->description = 'example@yrgo.se';
+        $post->category = 'food';
+        $post->user_id = 1;
+        $post->save();
+
+        $response = $this->followingRedirects()->get('/food');
+        $response->assertSeeText('example@yrgo.se');
         $response->assertStatus(200);
     }
 

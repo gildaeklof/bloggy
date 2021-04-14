@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bloggy</title>
 </head>
-<body>
-<header>
+<body class="bg-white">
+<header class="border-bottom">
     @include('nav')
 </header>
 
