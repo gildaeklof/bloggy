@@ -1,5 +1,5 @@
 @forelse ($posts->sortDesc() as $post)
-<div class="card m-2">
+<div class="card m-2 pb-3">
     <img class="card-img-top" src="{{$post->image}}">
     <div class="card-body">
         <h2>{{$post->title}}</h2>

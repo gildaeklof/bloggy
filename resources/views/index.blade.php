@@ -1,24 +1,23 @@
 @include('header')
 @include('success')
 <section class="container">
-    <p>My bloggy</p>
+    <h1 class="text-center pb-5">My bloggy</h1>
 
-    <ul class="">
+    <ul class="nav nav-tabs justify-content-center">
         <li class="nav-item">
-            <a class="nav-link" href="/">All posts</a>
+            <a class="nav-link text-uppercase {{ (request()->is('/')) ? 'active' : '' }}" aria-current="page" href="/">All posts</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/lifestyle">Lifestyle</a>
+            <a class="nav-link text-uppercase  {{ (request()->is('lifestyle')) ? 'active' : '' }}" aria-current="page"  href="/lifestyle">Lifestyle</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/fashion">Fashion</a>
+            <a class="nav-link text-uppercase {{ (request()->is('fashion')) ? 'active' : '' }}" aria-current="page" href="/fashion">Fashion</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/interior">Interior</a>
+            <a class="nav-link text-uppercase {{ (request()->is('interior')) ? 'active' : '' }}" aria-current="page" href="/interior">Interior</a>
         </li>
-
         <li class="nav-item">
-            <a class="nav-link" href="/food">Food</a>
+            <a class="nav-link text-uppercase {{ (request()->is('food')) ? 'active' : '' }}" aria-current="page"  href="/food">Food</a>
         </li>
     </ul>
 

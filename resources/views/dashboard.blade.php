@@ -15,13 +15,14 @@
         </div>
         <div class="form-group w-50">
             <label for="image">Image</label>
-            <input class="form-control" name="image" id="image" type="file">
+            <input class="" name="image" id="image" type="file">
         </div>
         <div class="form-group w-50">
             <label for="category">Select category: </label>
             <select class="" name="category" id="category">
+                <option selected>Open this select menu</option>
                 <option value="food">Food</option>
-                <option value="fashion">Fashion</option>
+                <option value="ashion">Fashion</option>
                 <option value="lifestyle">Lifestyle</option>
                 <option value="interior">Interior</option>
             </select>
