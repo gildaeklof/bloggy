@@ -43,7 +43,6 @@ class PostsController extends Controller
 
 
         if ($request->hasFile('image')) {
-
             if ($post->image !== null) {
                 unlink(public_path() . '/' . $post->image);
             }
