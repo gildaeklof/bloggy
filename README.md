@@ -4,21 +4,21 @@
 
     `https://github.com/gildaeklof/bloggy`
 
-2. #### Cd to the root of the project and run:
+2. #### Cd to the root of the project and run in terminal:
 
     `composer update`
 
 3. #### Create a .env file with credentials to your database
 
-4. #### Run:
+4. #### Run in terminal:
 
     `php artisan migrate`
 
-5. #### Run:
+5. #### Run in terminal:
 
     `php artisan storage:link`
 
-6. #### Run:
+6. #### Run in terminal:
 
     `php artisan serve`
 
