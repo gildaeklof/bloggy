@@ -40,12 +40,13 @@
         @foreach ($user->posts->sortDesc() as $post)
         <div class="card">
             <div class="card-header" id="heading{{$post->id}}" data-toggle="collapse" data-target="#collapse{{$post->id}}" aria-expanded="true" aria-controls="collapse{{$post->id}}"">
-            <h2 class=" mb-0">
-                {{$post->title}}
-                <button class="btn btn-link-dark" type="button" data-toggle="collapse" data-target="#collapse{{$post->id}}" aria-expanded="true" aria-controls="collapse{{$post->id}}">
-                    Edit post
-                </button>
-                </h2>
+            <h2 class=" mb-0">{{$post->title}}</h2>
+            <button class="btn btn-link-dark text-primary" type="button" data-toggle="collapse" data-target="#collapse{{$post->id}}" aria-expanded="true" aria-controls="collapse{{$post->id}}">
+                Edit post
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                </svg>
+            </button>
             </div>
             <div id="collapse{{$post->id}}" class="collapse" aria-labelledby="heading{{$post->id}}" data-parent="#accordionExample">
                 <div class="card-body p-lg-5">
