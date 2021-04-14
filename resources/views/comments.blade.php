@@ -1,11 +1,11 @@
 
-<div class="container  mt-4">
+<div class="mt-4 m-lg-5">
     <div class="row d-flex justify-content-center">
         <div class="col">
             <div class="border-bottom mb-5"></div>
             <h3 class="h5">Comments ({{$post->comments->count()}})</h3>
             @foreach ($post->comments as $comment)
-            <div class="card p-3">
+            <div class="card p-3 mb-2">
                 <div class="d-flex justify-content-between align-items-center pb-1">
                     <div class="user d-flex flex-row align-items-center"><span><small class="font-weight-bolder text-primary pr-2 text-capitalize">{{$comment->name}}</small></span> </div> <small>{{$comment->created_at}}</small>
                 </div>
