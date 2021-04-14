@@ -1,5 +1,5 @@
 
-<div class="container  mt-4">
+<div class="mt-4 m-lg-5">
     <div class="row d-flex justify-content-center">
         <div class="col">
             <div class="border-bottom mb-5"></div>

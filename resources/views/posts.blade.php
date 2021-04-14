@@ -13,8 +13,6 @@
                 Comments <span class="badge bg-dark">{{$post->comments->count()}}</span>
             </button>
         </div>
-
-
         <section class="collapse" id="collapse{{$post->id}}">
             @include('comments')
         </section>
