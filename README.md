@@ -70,6 +70,16 @@
 -   database/factories/CommentFactory.php, @ row 26:
     Good idea to use `paragraphs()` here. I used sentances
     in ours, don't think that looked as nice.
+    
+    ## Code Review by Hugocsundberg @ 2021-04-14 21:00
+* app/Http/Controllers/PostController.php @ row 13: <br> Another way to do this is to use the validate method directly on the 	$request instance. ```$request->validate(['description' => 'string', 'image' => 'nullable|mimes:jpeg,jpg,png,gif,svg|max:1000']);```
+* CSS is not loading for me. Probably a problem with how i set up the project locally. 
+* You could use view components to wrap your views inside another view instead of having several '@includes'. <a href="https://beyondco.de/blog/using-laravel-view-components">Link to component article</a> 
+* App/Http/Controllers/LoginController.php @ row 29 <br> If you were to expand the application you could use ```redirect()->intended('/dashboard')``` To redirect the user to whatever page it was trying to reach before being redirected to the login screen with dashboard as a backup.
+* App/Http/Controllers/LoginController.php @ row 22 <br> You are totally killing the enviorment by using too many whitespaces. I see atleast 22 bytes wasted
+* Images are missing 'Alt tags'
+* Looks good, couldn´t find anything more. 
+            
 
 ## License
 
