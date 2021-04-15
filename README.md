@@ -18,7 +18,7 @@
 
     `php artisan tinker`
 
-    ##### Then you need to run following to add a user in database. Update the credentials if you want to.
+    #### Then you need to run following to add a user in database. Update the credentials if you want to.
 
     `App\Models\User::create(['name' => 'Henrik', 'email' => 'henrik@yrgo.se', 'password' => Hash::make('123')]);`
 
@@ -26,7 +26,7 @@
 
     `php artisan storage:link`
 
-7. #### Run in terminal:
+7. #### Run in terminal and you ready to go:
 
     `php artisan serve`
 
