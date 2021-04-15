@@ -8,17 +8,25 @@
 
     `composer update`
 
-3. #### Create a .env file with credentials to your database
+3. #### Copy .env.example and create a .env file and with credentials to your database.
 
 4. #### Run in terminal:
 
     `php artisan migrate`
 
-5. #### Run in terminal:
+5. #### In order to test the website and login you need to create a owner of the website. Frist you need to run following in your terminal:
+
+    `php artisan tinker`
+
+    ##### Then you need to run following to add a user in database. Update the credentials if you want to.
+
+    `App\Models\User::create(['name' => 'Henrik', 'email' => 'henrik@yrgo.se', 'password' => Hash::make('123')]);`
+
+6. #### Run in terminal:
 
     `php artisan storage:link`
 
-6. #### Run in terminal:
+7. #### Run in terminal:
 
     `php artisan serve`
 
