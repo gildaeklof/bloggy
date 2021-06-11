@@ -1,36 +1,74 @@
-## Installation
+![bloggy](https://user-images.githubusercontent.com/70512941/121664296-a0bca980-caa7-11eb-9416-b5f2ff21b5de.gif)
+
+# Bloggy
+
+A school assignment with purpose to gain a better understanding of writing backend applications in Laravel.
+
+In a group of two, we decided to create a personal blog where only the blogger can log in to create, edit and delete posts. Visitors can view all posts and leave comments. To get the most out of this project, we were pair programming throughout the process.
+
+The application had to contain the following features of Laravel:
+
+-   Controllers
+-   Migrations
+-   HTTP Tests (on all routes)
+-   Laravel Mix
+-   Middleware
+-   Models (with relationships)
+-   Routes (with route model binding)
+-   Eloquent
+-   Relationships
+-   Validation
+-   Views (Blade)
+
+# Installation
 
 1. #### Clone the repository
 
-    `https://github.com/gildaeklof/bloggy`
+    ```
+    https://github.com/gildaeklof/bloggy
+    ```
 
 2. #### Cd to the root of the project and run in terminal:
 
-    `composer update`
+    ```
+    composer update
+    ```
 
 3. #### Copy .env.example and create a .env file and with credentials to your database.
 
 4. #### Run in terminal:
 
-    `php artisan migrate`
+    ```
+    php artisan migrate
+    ```
 
 5. #### In order to test the website and login you need to create a owner of the website. Frist you need to run following in your terminal:
 
-    `php artisan tinker`
+    ```
+    php artisan tinker
+    ```
 
     #### Then you need to run following to add a user in database. Update the credentials if you want to.
 
-    `App\Models\User::create(['name' => 'Henrik', 'email' => 'henrik@yrgo.se', 'password' => Hash::make('123')]);`
+    ```
+    App\Models\User::create(['name' => 'Henrik', 'email' => 'henrik@yrgo.se', 'password' => Hash::make('123')]);
+    ```
 
 6. #### Run in terminal:
 
-    `php artisan storage:link`
+    ```
+    php artisan storage:link
+    ```
 
 7. #### Run in terminal and you ready to go:
 
-    `php artisan serve`
+    ```
+    php artisan serve
+    ```
 
-## Code Review by JoeyJaySwe @ 2021-04-14 16:44
+# Code Review
+
+### by JoeyJaySwe @ 2021-04-14 16:44
 
 -   app/Http/Controllers/CommentsController.php, @ row 7-8:
     Don't forget to remove unused imports.
@@ -71,6 +109,6 @@
     Good idea to use `paragraphs()` here. I used sentances
     in ours, don't think that looked as nice.
 
-## License
+# License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
